@@ -7,6 +7,9 @@ import flixel.graphics.FlxGraphic;
 import Controls;
 
 class ClientPrefs {
+	public static var beatweek:Bool = true;
+	public static var soundTestUnlocked:Bool = true;
+	public static var gore:Bool = true;
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var opponentStrums:Bool = true;
@@ -94,6 +97,9 @@ class ClientPrefs {
 	}
 
 	public static function saveSettings() {
+		FlxG.save.data.beatweek = beatweek;
+		FlxG.save.data.gore = gore;
+		FlxG.save.data.soundTestUnlocked = soundTestUnlocked;
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.opponentStrums = opponentStrums;
@@ -141,6 +147,15 @@ class ClientPrefs {
 	}
 
 	public static function loadPrefs() {
+		if(FlxG.save.data.beatweek != null) {
+			beatweek = FlxG.save.data.beatweek;
+		}
+		if(FlxG.save.data.gore != null) {
+			gore = FlxG.save.data.gore;
+		}
+		if(FlxG.save.data.soundTestUnlocked != null) {
+			soundTestUnlocked = FlxG.save.data.soundTestUnlocked;
+		}
 		if(FlxG.save.data.downScroll != null) {
 			downScroll = FlxG.save.data.downScroll;
 		}
